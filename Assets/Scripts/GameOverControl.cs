@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,29 +13,11 @@ public class GameOverControl : MonoBehaviour
     [SerializeField] private bool playerIsDead;
 
 
-    void Start()
+    private void Update()
     {
-        
-    }
-
-    void Update()
-    {
-        //player.pontos = pontosPlayer;
-        GuardarValores();
-
-        if (Input.GetKeyDown(KeyCode.Space) && playerIsDead == true)
+        if (Input.GetKeyDown (KeyCode.Return))
         {
-           
-            DontDestroyOnLoad(gameObject);
             SceneManager.LoadScene(0);
         }
-        print(pontosPlayer);
-        textPontos.text = pontosPlayer.ToString();
-
-    }
-
-    void GuardarValores()
-    {
-        pontosPlayer = player.pontos;
     }
 }
